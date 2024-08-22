@@ -10,22 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+# include <iostream>
 
 using	std::string;
 
 class Bureaucrat
 {
 	public:
+		Bureaucrat();
 		Bureaucrat(const string name, int grade);
 		Bureaucrat(const Bureaucrat& cpy);
 		~Bureaucrat();
 
-		operator=(const Bureaucrat& cpy);
-		const string	getName();
-		int		getGrade();
+		Bureaucrat&	operator=(const Bureaucrat& cpy);
+		string		getName() const;
+		int		getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
+
+		class GradeTooLowException : public std::out_of_range
+		{
+			public:
+				GradeTooLowException(string str);
+		};
+
+		class GradeTooHighException : public std::out_of_range
+		{
+			public:
+				GradeTooHighException(string str);
+		};
 
 	private:
 		const string	name;
@@ -33,3 +48,5 @@ class Bureaucrat
 };
 
 std::ostream&	operator<<(std::ostream &os, const Bureaucrat& cpy);
+
+#endif

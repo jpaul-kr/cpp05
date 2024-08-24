@@ -14,6 +14,20 @@
 #define INCREMENT 1
 #define DECREMENT 0
 
+Bureaucrat	create_bureaucrat(const string name, int grade)
+{
+	Bureaucrat	b(name, 150);
+	try
+	{
+		b = Bureaucrat(name, grade);
+	}
+	catch(std::out_of_range& e)
+	{
+		std::cout << "constructor catch: " << e.what() << std::endl;
+	}
+	return b;
+}
+
 void	modify_grade(int mode, Bureaucrat& p, int n)
 {
 	try
@@ -23,23 +37,25 @@ void	modify_grade(int mode, Bureaucrat& p, int n)
 	}
 	catch (std::out_of_range& e)
 	{
-		std::cout << "catch: " << e.what() << std::endl;
+		std::cout << "modify catch: " << e.what() << std::endl;
 	}
 }
 
 int	main()
 {
 	Bureaucrat	p1;
-	Bureaucrat	p2("Marco", 12);
-	Bureaucrat	p3("Alex", 1);
+	Bureaucrat	p2 = create_bureaucrat("Marco", 12);
+	Bureaucrat	p3 = create_bureaucrat("Alex", 1);
+	//Bureaucrat	p2 = create_bureaucrat("Marco", 0);
+	//Bureaucrat	p3 = create_bureaucrat("Alex", 151);
 
-	modify_grade(INCREMENT, p2, 11);
+	//modify_grade(INCREMENT, p2, 11);
 	std::cout << p1 << std::endl;
 	std::cout << p2 << std::endl;
 	std::cout << p3 << std::endl;
 
 	p1 = p3;
-	modify_grade(DECREMENT, p1, 150);
+	//modify_grade(DECREMENT, p1, 150);
 	std::cout << p1 << std::endl;
 	return 0;
 }

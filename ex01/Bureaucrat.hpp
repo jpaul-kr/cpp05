@@ -29,6 +29,7 @@ class Bureaucrat
 		int		getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
+		void		signForm(const Form& form);
 
 		class GradeTooLowException : public std::out_of_range
 		{

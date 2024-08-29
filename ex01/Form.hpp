@@ -2,6 +2,10 @@
 # define FORM_HPP
 # include "Bureaucrat.hpp"
 
+using std::string;
+class	Bureaucrat;
+
+
 class Form
 {
 	public:
@@ -11,33 +15,38 @@ class Form
 		~Form();
 
 		Form&	operator=(const Form& cpy);
-		string	getName();
-		bool	getIsSigned();
-		int	getSignGrade();
-		int	getExecGrade();
-		void	beSigned(const Bureaucrat& bureaucrat);
-		void	signForm();
+		string		getName() const;
+		bool		getIsSigned() const;
+		int		getSignGrade() const;
+		int		getExecGrade() const;
+		void		beSigned(const Bureaucrat& bureaucrat);
+		void		signForm();
 
 		class	GradeTooHighException : public std::out_of_range
 		{
-			virtual	GradeTooHighException(string str);
+			public:
+				GradeTooHighException(string str);
 		};
 
 		class	GradeTooLowException : public std::out_of_range
 		{
-			virtual	GradeTooLowException(string str);
+			public:
+				GradeTooLowException(string str);
 		};
 
 		class	FormAlreadySignedException : public std::logic_error
 		{
-			virtual	FormAlreadySignedException(string str);
-		}
+			public:
+				FormAlreadySignedException(string str);
+		};
 
 	private:
 		const string	name;
 		bool		is_sign;
 		const int	sign_grade;
 		const int	exec_grade;
-}
+};
+
+std::ostream&	operator<<(std::ostream& os, const Form& form);
 
 #endif

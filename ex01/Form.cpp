@@ -2,7 +2,7 @@
 
 Form::Form() : name("unnamed"), is_sign(false), sign_grade(150), exec_grade(150) {}
 
-Form::Form(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : name(_name), is_sign(_is_sign)
+Form::Form(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : name(_name), is_sign(_is_sign), sign_grade(_sign_grade), exec_grade(_exec_grade)
 {
 	try
 	{
@@ -10,11 +10,6 @@ Form::Form(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : name
 			throw Form::GradeTooLowException(_name + ", ");
 		else if (_sign_grade < 1 || _exec_grade < 1)
 			throw Form::GradeTooHighException(_name + ", ");
-		else
-		{
-			sign_grade = _sign_grade;
-			exec_grade = _exec_grade;
-		}
 	}
 	catch (std::out_of_range& e)
 	{
@@ -34,27 +29,28 @@ Form&	Form::operator=(const Form& cpy)
 
 std::ostream&	operator<<(std::ostream& os, const Form& cpy)
 {
-	os << "Form: " << cpy.getName() << ", is Signed: " << cpy.getisSigned()\
+	os << "Form: " << cpy.getName() << ", is Signed: " << cpy.getIsSigned()\
 		<< ", sign Grade: " << cpy.getSignGrade() << ", execute grade: " \
-		<<cpy.getExecGrade() << std::endl;
+		<< cpy.getExecGrade() << std::endl;
+	return os;
 }
 
-string	Form::getName()
+string	Form::getName() const
 {
 	return this->name;
 }
 
-bool	Form::getIsSigned()
+bool	Form::getIsSigned() const
 {
 	return this->is_sign;
 }
 
-int	Form::getSignGrade()
+int	Form::getSignGrade() const
 {
 	return this->sign_grade;
 }
 
-int	Form::getExecGrade()
+int	Form::getExecGrade() const
 {
 	return this->exec_grade;
 }
@@ -63,7 +59,7 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (this->is_sign)
 		throw Form::FormAlreadySignedException(this->name + ", ");
-	this->sign_grade < bureaucrat.grade ? throw Form::GradeTooLowException(this->name + ", ") : this->is_sign = true;
+	this->sign_grade < bureaucrat.getGrade() ? throw Form::GradeTooLowException(this->name + ", ") : this->is_sign = true;
 }
 
 Form::GradeTooHighException::GradeTooHighException(string str) : std::out_of_range(str + "Grade Too High") {}

@@ -13,8 +13,11 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <iostream>
+# include "Form.hpp"
+
 
 using	std::string;
+class	Form;
 
 class Bureaucrat
 {
@@ -29,7 +32,7 @@ class Bureaucrat
 		int		getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
-		void		signForm(const Form& form);
+		void		signForm(Form& form);
 
 		class GradeTooLowException : public std::out_of_range
 		{

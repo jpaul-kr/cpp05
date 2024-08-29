@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 #define INCREMENT 1
 #define DECREMENT 0
@@ -23,39 +24,44 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 	}
 	catch(std::out_of_range& e)
 	{
-		std::cout << "constructor catch: " << e.what() << std::endl;
+		std::cout << "Bureaucrat constructor catch: " << e.what() << std::endl;
 	}
 	return b;
 }
 
-void	modify_grade(int mode, Bureaucrat& p, int n)
+Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grade)
 {
+	Form	f(name, false, 150, 150);
 	try
 	{
-		for (int i = 0; i < n; i++)
-			mode == INCREMENT? p.incrementGrade() : p.decrementGrade();
+		f = Form(name, isSigned, sign_grade, exec_grade);
 	}
-	catch (std::out_of_range& e)
+	catch(std::out_of_range& e)
 	{
-		std::cout << "modify catch: " << e.what() << std::endl;
+		std::cout << "Form constructor catch: " << e.what() << std::endl;
 	}
+	return f;
 }
 
 int	main()
 {
-	Bureaucrat	p1;
-	Bureaucrat	p2 = create_bureaucrat("Marco", 12);
-	Bureaucrat	p3 = create_bureaucrat("Alex", 1);
-	//Bureaucrat	p2 = create_bureaucrat("Marco", 0);
-	//Bureaucrat	p3 = create_bureaucrat("Alex", 151);
+	Bureaucrat	p1 = create_bureaucrat("Marco", 12);
+	Bureaucrat	p2 = create_bureaucrat("Alex", 1);
+	Form		f1 = create_form("Marco Form", false, 100, 70);
+	Form		f2 = create_form("Alex Form", false, 34, 80);
+	Form		f3;
 
-	//modify_grade(INCREMENT, p2, 11);
+	p1.signForm(f1);
 	std::cout << p1 << std::endl;
+	std::cout << f1 << std::endl;
+
 	std::cout << p2 << std::endl;
-	std::cout << p3 << std::endl;
+	std::cout << f2 << std::endl;
 
-	p1 = p3;
-	//modify_grade(DECREMENT, p1, 150);
-	std::cout << p1 << std::endl;
+	//p1.signForm(f1);
+	f1 = f3;
+
+	std::cout << f1 << std::endl;
+	std::cout << f3 << std::endl;
 	return 0;
 }

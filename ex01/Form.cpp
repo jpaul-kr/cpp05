@@ -13,7 +13,7 @@ Form::Form(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : name
 	}
 	catch (std::out_of_range& e)
 	{
-		std::cout << "Form constructor catch: " << e.what();
+		std::cout << "\tForm constructor catch: " << e.what();
 	}
 }
 
@@ -58,8 +58,8 @@ int	Form::getExecGrade() const
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (this->is_sign)
-		throw Form::FormAlreadySignedException(this->name + ", ");
-	this->sign_grade < bureaucrat.getGrade() ? throw Form::GradeTooLowException(this->name + ", ") : this->is_sign = true;
+		throw Form::FormAlreadySignedException("");
+	this->sign_grade < bureaucrat.getGrade() ? throw Form::GradeTooLowException("") : this->is_sign = true;
 }
 
 Form::GradeTooHighException::GradeTooHighException(string str) : std::out_of_range(str + "Grade Too High") {}

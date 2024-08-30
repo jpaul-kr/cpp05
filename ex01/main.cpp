@@ -31,23 +31,26 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 
 Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grade)
 {
-	Form	f(name, false, 150, 150);
+	Form	d(name, false, 150, 150);
 	try
 	{
-		f = Form(name, isSigned, sign_grade, exec_grade);
+		Form	f(name, isSigned, sign_grade, exec_grade);
+		return f;
 	}
 	catch(std::out_of_range& e)
 	{
 		std::cout << "Form constructor catch: " << e.what() << std::endl;
 	}
-	return f;
+	return d;
 }
 
 int	main()
 {
 	Bureaucrat	p1 = create_bureaucrat("Marco", 12);
 	Bureaucrat	p2 = create_bureaucrat("Alex", 1);
+	//Bureaucrat	p2 = create_bureaucrat("Alex", 40);
 	Form		f1 = create_form("Marco Form", false, 100, 70);
+	//Form		f1 = create_form("Marco Form", false, 160, 70);
 	Form		f2 = create_form("Alex Form", false, 34, 80);
 	Form		f3;
 
@@ -57,7 +60,9 @@ int	main()
 
 	std::cout << p2 << std::endl;
 	std::cout << f2 << std::endl;
-
+	
+	//p2.signForm(f2);
+	//std::cout << f2 << std::endl;
 	//p1.signForm(f1);
 	f1 = f3;
 

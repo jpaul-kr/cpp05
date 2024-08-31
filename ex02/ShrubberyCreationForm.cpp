@@ -14,7 +14,11 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-ShrubberyCreationForm::getTarget() const
+string	ShrubberyCreationForm::getTarget() const
 {
 	return this->target;
+}
+
+void	ShrubberyCreationForm::executeShrubbery()
+{
 }

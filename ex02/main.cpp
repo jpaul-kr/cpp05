@@ -6,11 +6,12 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/08/21 13:22:03 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/02 12:58:14 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 #define INCREMENT 1
 #define DECREMENT 0
@@ -29,7 +30,7 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 	return b;
 }
 
-Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grade)
+/*Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grade)
 {
 	Form	d(name, false, 150, 150);
 	try
@@ -42,9 +43,15 @@ Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grad
 		std::cout << "Form constructor catch: " << e.what() << std::endl;
 	}
 	return d;
-}
+}*/
 
 int	main()
+{
+	RobotomyRequestForm	f("damn");
+
+	f.executeRobotomy();
+}
+/*int	main()
 {
 	Bureaucrat	p1 = create_bureaucrat("Marco", 12);
 	Bureaucrat	p2 = create_bureaucrat("Alex", 1);
@@ -69,4 +76,4 @@ int	main()
 	std::cout << f1 << std::endl;
 	std::cout << f3 << std::endl;
 	return 0;
-}
+}*/

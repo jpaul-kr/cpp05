@@ -7,9 +7,9 @@ AForm::AForm(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : na
 	try
 	{
 		if (_sign_grade > 150 || _exec_grade > 150)
-			throw Form::GradeTooLowException(_name + ", ");
+			throw AForm::GradeTooLowException(_name + ", ");
 		else if (_sign_grade < 1 || _exec_grade < 1)
-			throw Form::GradeTooHighException(_name + ", ");
+			throw AForm::GradeTooHighException(_name + ", ");
 	}
 	catch (std::out_of_range& e)
 	{
@@ -58,8 +58,8 @@ int	AForm::getExecGrade() const
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (this->is_sign)
-		throw Form::FormAlreadySignedException("");
-	this->sign_grade < bureaucrat.getGrade() ? throw Form::GradeTooLowException("") : this->is_sign = true;
+		throw AForm::FormAlreadySignedException("");
+	this->sign_grade < bureaucrat.getGrade() ? throw AForm::GradeTooLowException("") : this->is_sign = true;
 }
 
 AForm::GradeTooHighException::GradeTooHighException(string str) : std::out_of_range(str + "Grade Too High") {}

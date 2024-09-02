@@ -6,7 +6,7 @@
 #    By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/21 11:22:00 by jpaul-kr          #+#    #+#              #
-#    Updated: 2024/08/21 11:27:57 by jpaul-kr         ###   ########.fr        #
+#    Updated: 2024/09/02 12:57:39 by jpaul-kr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++ -std=c++98
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 RM = rm -rf
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

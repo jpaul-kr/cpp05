@@ -11,7 +11,7 @@ class AForm
 	public:
 		AForm();
 		AForm(string name, bool iSsigned, int sign_grade, int exec_grade);
-		AForm(const Form& cpy);
+		AForm(const AForm& cpy);
 		~AForm();
 
 		AForm&	operator=(const AForm& cpy);

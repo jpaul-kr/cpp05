@@ -1,9 +1,10 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
-# define 145 SGRADE
-# define 137 EGRADE
+# define S_SGRADE 145
+# define S_EGRADE 137
 # include "AForm.hpp"
 # include <fstream>
+# include <string>
 
 class ShrubberyCreationForm : public AForm
 {

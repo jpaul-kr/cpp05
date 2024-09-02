@@ -4,13 +4,13 @@ ShrubberyCreationForm::ShrubberyCreationForm() : target("unnamed target") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(string name) : target(name) {}
 
-ShrubberyCreationAForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy) : target(cpy.target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy) : target(cpy.target) {}
 
-ShrubberyCreationAForm::~ShrubberyCreationForm() {}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& cpy)
 {
-	this->target = cpy.target;
+	AForm::operator=(cpy);
 	return *this;
 }
 
@@ -21,4 +21,10 @@ string	ShrubberyCreationForm::getTarget() const
 
 void	ShrubberyCreationForm::executeShrubbery()
 {
+	string	target = this->target + "_shrubbery";
+	std::ofstream	os(target.c_str());
+
+	os << "    *\n" << "   ***\n" << "  *****\n" << " *******\n"\
+		<< "*********\n" << "   |||   " << std::endl;
+		
 }

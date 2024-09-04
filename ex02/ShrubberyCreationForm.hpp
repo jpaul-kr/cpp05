@@ -16,7 +16,8 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& cpy);
 
 		string	getTarget() const;
-		void	executeShrubbery();
+		void	executeForm();
+
 	private:
 		const string target;
 };

@@ -1,8 +1,9 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
-# define SGRADE 72
-# define EGRADE 45
+# define R_SGRADE 72
+# define R_EGRADE 45
 # include <cstdlib>
+# include <ctime>
 # include <fstream>
 # include "AForm.hpp"
 
@@ -16,9 +17,9 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm& cpy);
 
 		string	getTarget() const;
-		void	executeRobotomy();
 
 	private:
+		void		executeForm();
 		const string	target;
 };
 

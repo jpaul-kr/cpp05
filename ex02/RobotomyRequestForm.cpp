@@ -1,10 +1,10 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : target("unnamed target") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", false, R_SGRADE, R_EGRADE), target("unnamed target") {}
 
-RobotomyRequestForm::RobotomyRequestForm(string name) : target(name) {}
+RobotomyRequestForm::RobotomyRequestForm(string name) : AForm("RobotomyRequestForm", false, R_SGRADE, R_EGRADE), target(name) {}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy) : target(cpy.target) {}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy) : AForm("RobotomyRequestForm", false, R_SGRADE, R_EGRADE), target(cpy.target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
@@ -19,9 +19,10 @@ string	RobotomyRequestForm::getTarget() const
 	return this->target;
 }
 
-void	RobotomyRequestForm::executeRobotomy()
+void	RobotomyRequestForm::executeForm()
 {
 	int	r = rand() % 2;
+
 	std::cout << "Bzz...Bzzzzzzz(drilling noises)" << std::endl;
 
 	std::cout << r << std::endl;

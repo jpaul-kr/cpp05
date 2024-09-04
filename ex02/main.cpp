@@ -47,9 +47,10 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 
 int	main()
 {
-	RobotomyRequestForm	f("damn");
+	AForm	*f = new RobotomyRequestForm;
 
-	f.executeRobotomy();
+	f->executeForm();
+	delete f;
 }
 /*int	main()
 {

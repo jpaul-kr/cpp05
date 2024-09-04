@@ -12,15 +12,16 @@ class AForm
 		AForm();
 		AForm(string name, bool iSsigned, int sign_grade, int exec_grade);
 		AForm(const AForm& cpy);
-		~AForm();
+		virtual ~AForm();
 
-		AForm&	operator=(const AForm& cpy);
+		AForm&		operator=(const AForm& cpy);
 		string		getName() const;
 		bool		getIsSigned() const;
 		int		getSignGrade() const;
 		int		getExecGrade() const;
 		void		beSigned(const Bureaucrat& bureaucrat);
 		void		signForm();
+		virtual void	executeForm() = 0;
 
 		class	GradeTooHighException : public std::out_of_range
 		{
@@ -39,6 +40,7 @@ class AForm
 			public:
 				FormAlreadySignedException(string str);
 		};
+	
 
 	private:
 		const string	name;

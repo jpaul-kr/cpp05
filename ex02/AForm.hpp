@@ -22,6 +22,7 @@ class AForm
 		void		beSigned(const Bureaucrat& bureaucrat);
 		void		signForm();
 		virtual void	executeForm() = 0;
+		void		execute(const Bureaucrat& executor) const;
 
 		class	GradeTooHighException : public std::out_of_range
 		{
@@ -39,6 +40,12 @@ class AForm
 		{
 			public:
 				FormAlreadySignedException(string str);
+		};
+
+		class	FormNotSignedException : public std::logic_error
+		{
+			public:
+				FormNotSignedException(string str);
 		};
 	
 

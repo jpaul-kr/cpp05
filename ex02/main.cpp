@@ -6,12 +6,13 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/02 12:58:14 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:29:53 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 #define INCREMENT 1
 #define DECREMENT 0
@@ -47,7 +48,7 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 
 int	main()
 {
-	AForm	*f = new RobotomyRequestForm;
+	AForm	*f = new PresidentialPardonForm("juan pablo garcia");
 
 	f->executeForm();
 	delete f;

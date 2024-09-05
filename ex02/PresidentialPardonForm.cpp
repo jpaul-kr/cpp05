@@ -1,22 +1,25 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : target("unnamed target") {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", false, P_SGRADE, P_EGRADE), target("unnamed target") {}
 
-PresidentialPardonForm::PresidentialPardonForm(string name) : target(name) {}
+PresidentialPardonForm::PresidentialPardonForm(string name) : AForm("PresidentialPardonForm", false, P_SGRADE, P_EGRADE), target(name) {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy) : target(cpy.target) {}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy) : AForm("PresidentialPardonForm", false, P_SGRADE, P_EGRADE), target(cpy.target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& cpy)
 {
-	this->target = cpy.target;
+	AForm::operator=(cpy);
 	return *this;
 }
 
-string	PresidentialPardonForm::getTarget()
+string	PresidentialPardonForm::getTarget() const
 {
 	return this->target;
 }
 
-void	PresidentialPardonForm::execPradon() {}
+void	PresidentialPardonForm::executeForm() 
+{
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}

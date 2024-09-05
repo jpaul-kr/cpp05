@@ -1,7 +1,7 @@
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
-# define 25 SGRADE
-# define 5 EGRADE
+# define P_SGRADE	25
+# define P_EGRADE	5
 # include "AForm.hpp"
 
 class	PresidentialPardonForm : public AForm
@@ -14,9 +14,9 @@ class	PresidentialPardonForm : public AForm
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& cpy);
 
 		string	getTarget() const;
-		void	execPardon();
 		
 	private:
+		void		executeForm();
 		const string	target;
 };
 

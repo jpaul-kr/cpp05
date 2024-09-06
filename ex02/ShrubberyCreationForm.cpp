@@ -19,7 +19,7 @@ string	ShrubberyCreationForm::getTarget() const
 	return this->target;
 }
 
-void	ShrubberyCreationForm::executeForm()
+void	ShrubberyCreationForm::executeForm() const
 {
 	string	target = this->target + "_shrubbery";
 	std::ofstream	os(target.c_str());

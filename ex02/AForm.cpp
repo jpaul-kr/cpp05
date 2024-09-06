@@ -66,11 +66,9 @@ void	AForm::execute(const Bureaucrat& executor) const
 {
 	if (!this->is_sign)
 		throw	AForm::FormNotSignedException(this->name);
-	if (this->exec_grade > executor.getGrade())
+	if (this->exec_grade < executor.getGrade())
 		throw	AForm::GradeTooLowException("");
-	if (this->name = "PresidentialPardonForm")
-		PresidentialPardonForm::executeForm();
-	this->name == "ShrubberyCreationForm" ? ShrubberyCreationForm::executeForm() : RobotomyRequestForm::executeForm();
+	executeForm();
 }
 
 AForm::GradeTooHighException::GradeTooHighException(string str) : std::out_of_range(str + "Grade Too High") {}

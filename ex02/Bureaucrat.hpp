@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:28:36 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/02 12:36:02 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/06 12:27:59 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm& form);
+		void		executeForm(const AForm& form);
 
 		class GradeTooLowException : public std::out_of_range
 		{

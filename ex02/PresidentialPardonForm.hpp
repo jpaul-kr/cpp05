@@ -16,7 +16,7 @@ class	PresidentialPardonForm : public AForm
 		string	getTarget() const;
 		
 	private:
-		void		executeForm();
+		void		executeForm() const;
 		const string	target;
 };
 

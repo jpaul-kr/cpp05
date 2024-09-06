@@ -21,7 +21,7 @@ class AForm
 		int		getExecGrade() const;
 		void		beSigned(const Bureaucrat& bureaucrat);
 		void		signForm();
-		virtual void	executeForm() = 0;
+		virtual void	executeForm() const = 0;
 		void		execute(const Bureaucrat& executor) const;
 
 		class	GradeTooHighException : public std::out_of_range

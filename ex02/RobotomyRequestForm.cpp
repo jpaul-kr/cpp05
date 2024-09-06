@@ -19,7 +19,7 @@ string	RobotomyRequestForm::getTarget() const
 	return this->target;
 }
 
-void	RobotomyRequestForm::executeForm()
+void	RobotomyRequestForm::executeForm() const
 {
 	int	r = rand() % 2;
 

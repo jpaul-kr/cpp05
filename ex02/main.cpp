@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/05 12:29:53 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/06 13:00:51 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,31 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 
 int	main()
 {
-	AForm	*f = new PresidentialPardonForm("juan pablo garcia");
+	AForm	*p = new PresidentialPardonForm("Burger King");
+	AForm	*r = new RobotomyRequestForm("McDonalds");
+	AForm	*s = new ShrubberyCreationForm("KFC");
+	Bureaucrat	b1 = create_bureaucrat("Gibsy King", 5);
+	Bureaucrat	b2 = create_bureaucrat("Mclovin", 43);
+	Bureaucrat	b3 = create_bureaucrat("basket person", 125);
 
-	f->executeForm();
-	delete f;
+	std::cout << std::endl;
+	b1.signForm(*p);
+	b2.signForm(*r);
+	b3.signForm(*s);
+
+	std::cout << std::endl;
+	std::cout << b1 << std::endl;
+	std::cout << b2 << std::endl;
+	std::cout << b3 << std::endl;
+
+	std::cout << std::endl;
+	b1.executeForm(*p);
+	b2.executeForm(*r);
+	b3.executeForm(*s);
+
+	delete p;
+	delete r;
+	delete s;
 }
 /*int	main()
 {

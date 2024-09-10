@@ -13,9 +13,6 @@ class Intern
 		~Intern();
 		Intern&	operator=(const Intern& cpy);
 
-		AForm*	makeShrubberyCreationForm(string target);
-		AForm*	makeRobotomyRequestForm(string target);
-		AForm*	makePresidentialPardonForm(string target);
 		AForm*	makeForm(string name, string target);
 
 		class FormDoesntExistException : public std::logic_error
@@ -23,6 +20,12 @@ class Intern
 			public:
 				FormDoesntExistException(string str);
 		};
+
+	private:
+		AForm*	makeShrubberyCreationForm(string target);
+		AForm*	makeRobotomyRequestForm(string target);
+		AForm*	makePresidentialPardonForm(string target);
+	
 };
 
 typedef	AForm*	(Intern::*createForm)(string target);

@@ -2,7 +2,10 @@
 
 Intern::Intern() {}
 
-Intern::Intern(const Intern& cpy) {}
+Intern::Intern(const Intern& cpy)
+{
+	(void)cpy;
+}
 
 Intern::~Intern() {}
 
@@ -15,36 +18,45 @@ Intern&	Intern::operator=(const Intern& cpy)
 AForm*	Intern::makeShrubberyCreationForm(string target)
 {
 	AForm*	form = new ShrubberyCreationForm(target);
+	std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
 	return form;
 }
 
 AForm*	Intern::makeRobotomyRequestForm(string target)
 {
-	AForm*	form = new RobotommyRequestForm(target);
+	AForm*	form = new RobotomyRequestForm(target);
+	std::cout << "Intern creates RobotomyRequestForm" << std::endl;
 	return form;
 }
 
 AForm*	Intern::makePresidentialPardonForm(string target)
 {
 	AForm*	form = new PresidentialPardonForm(target);
+	std::cout << "Intern creates PresidentialPardonForm" << std::endl;
 	return form;
 }
 
 AForm*	Intern::makeForm(string name, string target) 
 {
-	AForm*		ret;
-	createForm	form[3]  = {&ShrubberyCrationForm, &RobotomyRequestForm, &PresidentialPardonForm};
+	createForm	form[3]  = {&Intern::makeShrubberyCreationForm, &Intern::makeRobotomyRequestForm, &Intern::makePresidentialPardonForm};
 	string		names[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	int		i;
 
-	for (i = 0; i < 3; i++)
+	try
 	{
-		if (name == names[i])
-			ret = form[i](target);
+		for (i = 0; i < 3; i++)
+		{
+			if (!name.compare(names[i]))
+				return (this->*form[i])(target);
+		}
+		if (i == 3)
+			throw Intern::FormDoesntExistException(name);
 	}
-	if (i == 3)
-		throw Intern::FormDoesntExistException("exception catch: ");
-	return ret;
+	catch (std::logic_error& e)
+	{
+		std::cout << "exception catch: " << e.what() << std::endl;
+	}
+	return NULL;
 }
 
-Intern::FormDoesntExistException::FormDoesntExistException(string str) : std::logic_error(str + "Form doesn't exist") {}
+Intern::FormDoesntExistException::FormDoesntExistException(string str) : std::logic_error(str + " form doesn't exist") {}

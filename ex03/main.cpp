@@ -50,7 +50,7 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 int	main()
 {
 	Intern	intern;
-	AForm	*p = intern.makeForm("presidential pardon", "MarcoForm");
+	AForm	*p = intern.makeForm("presidential  pardon", "MarcoForm");
 	AForm	*r = intern.makeForm("robotomy request", "JuanForm");
 	AForm	*s = intern.makeForm("shrubbery creation", "GabrielForm");
 	Bureaucrat	b1 = create_bureaucrat("Marco", 5);

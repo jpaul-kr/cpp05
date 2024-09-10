@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/09 12:40:52 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:59:22 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #define INCREMENT 1
 #define DECREMENT 0
 
@@ -48,9 +49,10 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 
 int	main()
 {
-	AForm	*p = new PresidentialPardonForm("MarcoForm");
-	AForm	*r = new RobotomyRequestForm("JuanForm");
-	AForm	*s = new ShrubberyCreationForm("GabrielForm");
+	Intern	intern;
+	AForm	*p = intern.makeForm("presidential pardon", "MarcoForm");
+	AForm	*r = intern.makeForm("robotomy request", "JuanForm");
+	AForm	*s = intern.makeForm("shrubbery creation", "GabrielForm");
 	Bureaucrat	b1 = create_bureaucrat("Marco", 5);
 	Bureaucrat	b2 = create_bureaucrat("Juan", 43);
 	Bureaucrat	b3 = create_bureaucrat("Gabriel", 125);

@@ -13,7 +13,7 @@ Form::Form(string _name, bool _is_sign, int _sign_grade, int _exec_grade) : name
 	}
 	catch (std::out_of_range& e)
 	{
-		std::cout << "\tForm constructor catch: " << e.what();
+		std::cout << "\tForm constructor catch: " << e.what() << std::endl;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/08/21 13:22:03 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:39:44 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main()
 	//Bureaucrat	p3 = create_bureaucrat("Alex", 151);
 
 	//modify_grade(INCREMENT, p2, 11);
+	//modify_grade(INCREMENT, p2, 12);
 	std::cout << p1 << std::endl;
 	std::cout << p2 << std::endl;
 	std::cout << p3 << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:51:15 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/06 12:52:02 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/12 12:05:56 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	Bureaucrat::executeForm(const AForm& form)
 	}
 	catch (std::exception& e)
 	{
-		std::cout << "execution catch: " << e.what() << std::endl;
+		std::cout << "\texecution catch: " << e.what() << std::endl;
 	}
 }
 

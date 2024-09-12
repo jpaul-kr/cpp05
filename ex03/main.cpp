@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/12 11:00:00 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/12 12:22:47 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ bool	test_forms(AForm* a, AForm* b, AForm* c)
 int	main()
 {
 	Intern	intern;
-	AForm	*p = intern.makeForm("presidential pardon", "MarcoForm");
-	//AForm	*p = intern.makeForm("presidential predone", "MarcoForm");
-	AForm	*r = intern.makeForm("robotomy request", "JuanForm");
-	AForm	*s = intern.makeForm("shrubbery creation", "GabrielForm");
+	AForm	*p = intern.makeForm("presidential pardon", "Joe Biden");
+	//AForm	*p = intern.makeForm("presidential predone", "Joe Biden");
+	AForm	*r = intern.makeForm("robotomy request", "Bender");
+	AForm	*s = intern.makeForm("shrubbery creation", "Christmas");
 	Bureaucrat	b1 = create_bureaucrat("Marco", 5);
 	Bureaucrat	b2 = create_bureaucrat("Juan", 43);
 	Bureaucrat	b3 = create_bureaucrat("Gabriel", 125);
@@ -66,7 +66,7 @@ int	main()
 	b1.signForm(*p);
 	b2.signForm(*r);
 	b3.signForm(*s);
-	b1.signForm(*p);
+	//b1.signForm(*p);
 
 	std::cout << std::endl;
 	std::cout << b1 << std::endl;

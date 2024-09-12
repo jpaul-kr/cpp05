@@ -6,7 +6,7 @@
 /*   By: jpaul-kr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:21:07 by jpaul-kr          #+#    #+#             */
-/*   Updated: 2024/09/10 12:59:22 by jpaul-kr         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:00:00 by jpaul-kr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,27 @@ Bureaucrat	create_bureaucrat(const string name, int grade)
 	return b;
 }
 
-/*Form	create_form(const string name, bool isSigned, int sign_grade, int exec_grade)
+bool	test_forms(AForm* a, AForm* b, AForm* c)
 {
-	Form	d(name, false, 150, 150);
-	try
+	AForm*	v[3] = {a, b, c};
+	for (int i = 0; i < 3; i++)
 	{
-		Form	f(name, isSigned, sign_grade, exec_grade);
-		return f;
+		if (!v[i])
+		{
+			delete a;
+			delete b;
+			delete c;
+			return false;
+		} 
 	}
-	catch(std::out_of_range& e)
-	{
-		std::cout << "Form constructor catch: " << e.what() << std::endl;
-	}
-	return d;
-}*/
+	return true;
+}
 
 int	main()
 {
 	Intern	intern;
-	AForm	*p = intern.makeForm("presidential  pardon", "MarcoForm");
+	AForm	*p = intern.makeForm("presidential pardon", "MarcoForm");
+	//AForm	*p = intern.makeForm("presidential predone", "MarcoForm");
 	AForm	*r = intern.makeForm("robotomy request", "JuanForm");
 	AForm	*s = intern.makeForm("shrubbery creation", "GabrielForm");
 	Bureaucrat	b1 = create_bureaucrat("Marco", 5);
@@ -58,11 +60,13 @@ int	main()
 	Bureaucrat	b3 = create_bureaucrat("Gabriel", 125);
 	//Bureaucrat	b3 = create_bureaucrat("Gabriel", 146);
 
+	if (!test_forms(p, r, s))
+		return 0;
 	std::cout << std::endl;
 	b1.signForm(*p);
 	b2.signForm(*r);
 	b3.signForm(*s);
-	//b1.signForm(*p);
+	b1.signForm(*p);
 
 	std::cout << std::endl;
 	std::cout << b1 << std::endl;

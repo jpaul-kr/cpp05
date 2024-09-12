@@ -25,8 +25,6 @@ void	RobotomyRequestForm::executeForm() const
 
 	std::cout << "Bzz...Bzzzzzzz(drilling noises)" << std::endl;
 
-	std::cout << r << std::endl;
-
 	if (r)
 		std::cout << this->target << " has been successfully robotomized!" << std::endl;
 	else

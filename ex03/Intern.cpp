@@ -54,7 +54,7 @@ AForm*	Intern::makeForm(string name, string target)
 	}
 	catch (std::logic_error& e)
 	{
-		std::cout << "exception catch: " << e.what() << std::endl;
+		std::cout << "\texception catch: " << e.what() << std::endl;
 	}
 	return NULL;
 }
